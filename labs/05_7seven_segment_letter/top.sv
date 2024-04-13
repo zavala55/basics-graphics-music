@@ -80,8 +80,16 @@ module top
     }
     seven_seg_encoding_e;
 
-    assign abcdefgh = key [0] ? P : F;
-    assign digit    = w_digit' (key [1] ? 2'b10 : 2'b01);
+    // assign abcdefgh = key [0] ? P : F;
+    // assign abcdefgh[3] = F;
+    // assign abcdefgh[2] = P;
+    // assign abcdefgh[1] = G;
+    // assign abcdefgh[0] = A;
+
+    // assign digit    = w_digit' (key [1] ? 2'b10 : 2'b01);
+    // assign digit    = w_digit' (sw [1] ? 2'b10 : 2'b01);
+
+    assign digit    = w_digit' (sw);
 
     // Exercise 1: Display the first letters
     // of your first name and last name instead.
@@ -92,7 +100,7 @@ module top
     // Exercise 2: Display letters of a 4-character word
     // using this code to display letter of FPGA as an example
 
-    /*
+    
     seven_seg_encoding_e letter;
 
     always_comb
@@ -106,6 +114,6 @@ module top
 
     assign abcdefgh = letter;
     assign digit    = w_digit' (key);
-    */
+    
 
 endmodule
